@@ -1,16 +1,70 @@
-# React + Vite
+# TalkNest - Real-time Chat Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TalkNest is a modern, real-time messaging application built with React, Vite, and Tailwind CSS. It features a premium, dark-themed interface designed for a seamless user experience.
 
-Currently, two official plugins are available:
+![TalkNest Preview](C:\Users\AzhaganNatrajan\.gemini\antigravity\brain\3894303a-2f9e-4982-9986-ad896859c82e\pulsechat_ui_verification_1772432565102.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Real-time Messaging**: Instant communication with friends and colleagues.
+- **Premium UI/UX**: Sleek dark mode design with a focus on usability.
+- **Secure Authentication**: User login and registration powered by JWT (Backend integration ready).
+- **Form Validation**: Robust client-side validation using Formik and Yup.
+- **Responsive Layout**: Works seamlessly across different screen sizes.
+- **Profile & Settings**: Manage your account information and preferences easily.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19, Vite 8
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **Forms**: Formik & Yup
+- **Routing**: React Router 7
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Azhagan2208/TalkNest.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd client
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the App
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+## 📂 Project Structure
+
+- `src/pages`: Main application pages (Chat, Login, Register, Settings).
+- `src/components`: Reusable UI components.
+- `src/layout`: Page layouts and structure.
+- `src/router`: Application routing configuration.
+- `src/assets`: Images and static assets.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+Built with ❤️ by [Azhagan Natrajan](https://github.com/Azhagan2208)
