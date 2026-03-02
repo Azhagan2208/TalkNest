@@ -1,0 +1,153 @@
+import React, { useRef, useState } from "react";
+import { Camera, ChevronUp, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const Register = () => {
+  const fileInputRef = useRef(null);
+  const [image, setImage] = useState(null);
+
+  const handleCircleClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImage(URL.createObjectURL(file));
+    }
+  };
+
+  return (
+    <div className="w-full h-screen bg-black flex justify-center items-center font-sans">
+      <div>
+        <h1 className="text-white text-center mb-2 font-bold text-3xl">
+          Welcome to Talk<span className="text-[#34D4F4]">Nest</span>
+        </h1>
+        <p className="text-white text-center mb-5 text-sm">
+          Join the MERN Chat community. Secure, <br /> real-time messaging with{" "}
+          <span className="text-[#34D4F4]">JWT authentication.</span>
+        </p>
+
+        <form
+          action=""
+          className="border border-[#2A2F3A] bg-[#191B1FFF] h-[720px] w-[448px] rounded-md shadow-lg flex flex-col items-center"
+        >
+          <div className="flex text-white justify-center p-3 gap-5 mt-3 w-full">
+            <Link
+              type="button"
+              className="p-3 w-[188px] bg-[#1E2024FF] rounded-md cursor-pointer text-white hover:bg-[#25282c] transition-all text-center"
+              to={"/login"}
+            >
+              Login
+            </Link>
+            <button
+              type="button"
+              className="p-3 w-[188px] rounded-md cursor-pointer bg-[#34D4F4] text-black font-semibold" 
+            >
+              Register
+            </button>
+          </div>
+
+          <div className="flex flex-col items-center mt-6">
+            <div
+              onClick={handleCircleClick}
+              className="relative flex items-center justify-center w-24 h-24 border-2 border-dashed border-[#34D4F4]/30 rounded-full cursor-pointer hover:bg-[#1E2024FF] transition-all group"
+            >
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                className="hidden"
+                accept="image/*"
+              />
+
+              {image ? (
+                <img
+                  src={image}
+                  alt="Preview"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              ) : (
+                <Camera className="text-gray-500 w-6 h-6 group-hover:text-[#34D4F4] transition-colors" />
+              )}
+
+              <div className="absolute bottom-0 right-0 bg-[#34D4F4] p-1 rounded-full border-[3px] border-[#191B1FFF] shadow-xl">
+                <ChevronUp className="w-3 h-3 text-black" />
+              </div>
+            </div>
+            <p className="mt-2 text-white text-sm font-medium opacity-80">
+              Upload profile photo
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 mt-4 text-white/70 text-md">
+            <div className="flex flex-col gap-2">
+              <label className="text-[14px]">Full Name</label>
+              <input
+                type="password"
+                className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
+                placeholder="Ex. John Doe"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-[14px]">Email</label>
+              <input
+                type="email"
+                placeholder="email@example.com"
+                className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-[14px]">Password</label>
+              <input
+                type="password"
+                placeholder="••••••••"
+                className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-[14px]">Confirm Password</label>
+              <input
+                type="password"
+                placeholder="••••••••"
+                className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
+              />
+            </div>
+            <div className="flex gap-2">
+              <input type="checkbox" />
+              <label htmlFor="">
+                I agree to the
+                <span className="text-[#34D4F4] cursor-pointer ml-[2px]">
+                  Terms of Service
+                </span>{" "}
+                and{" "}
+                <span className="text-[#34D4F4] cursor-pointer">
+                  Terms of Service
+                </span>
+                .
+              </label>
+            </div>
+
+            <Link className="bg-[#34D4F4] text-black font-bold py-3 rounded-md mt-4 hover:bg-[#2bc2e0] transition-colors flex justify-center items-center gap-3 text-[16px]" to={"/app"}>
+              Create Account <ChevronRight />
+            </Link>
+            <p className="flex justify-center items-center gap-1">
+              Already have an account?
+              <Link className="text-[#34D4F4] cursor-pointer" to={"/login"}>Log in here</Link>
+            </p>
+          </div>
+        </form>
+
+        <footer>
+          <p className="text-white flex justify-center items-center mt-[20px] text-sm opacity-60">
+            © 2026 MERN Chat. All rights reserved.
+          </p>
+        </footer>
+      </div>
+    </div>
+  );
+};
+
+export default Register;
