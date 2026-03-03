@@ -1,8 +1,28 @@
 import React, { useRef, useState } from "react";
 import { Camera, ChevronUp, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 const Register = () => {
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is Required"),
+    email: Yup.string().required("Email is required!!"),
+    password: Yup.string().required("Password is required"),
+    confirm_password: Yup.string("Confimation is required!"),
+  });
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      emai: "",
+      password: "",
+      confirm_password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   const fileInputRef = useRef(null);
   const [image, setImage] = useState(null);
 
@@ -30,7 +50,7 @@ const Register = () => {
 
         <form
           action=""
-          className="border border-[#2A2F3A] bg-[#191B1FFF] h-[720px] w-[448px] rounded-md shadow-lg flex flex-col items-center"
+          className="border border-[#2A2F3A] bg-[#191B1FFF] w-[448px] rounded-md shadow-lg flex flex-col items-center"
         >
           <div className="flex text-white justify-center p-3 gap-5 mt-3 w-full">
             <Link
@@ -42,7 +62,7 @@ const Register = () => {
             </Link>
             <button
               type="button"
-              className="p-3 w-[188px] rounded-md cursor-pointer bg-[#34D4F4] text-black font-semibold" 
+              className="p-3 w-[188px] rounded-md cursor-pointer bg-[#34D4F4] text-black font-semibold"
             >
               Register
             </button>
@@ -84,18 +104,38 @@ const Register = () => {
               <label className="text-[14px]">Full Name</label>
               <input
                 type="password"
+                name="name"
+                id="name"
+                value={formik.values.name}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
                 className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
                 placeholder="Ex. John Doe"
               />
+              {formik.touched.name && formik.errors.name && (
+                <span className="text-red-500 text-md">
+                  {formik.errors.name}
+                </span>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">
               <label className="text-[14px]">Email</label>
               <input
                 type="email"
+                name="email"
+                id="email"
+                value={formik.values.email}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleBlur}
                 placeholder="email@example.com"
                 className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
               />
+              {formik.touched.email && formik.errors.email && (
+                <span className="text-red-500 text-md">
+                  {formik.errors.email}
+                </span>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">
@@ -103,8 +143,18 @@ const Register = () => {
               <input
                 type="password"
                 placeholder="••••••••"
+                name="password"
+                id="password"
+                value={formik.values.password}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
                 className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
               />
+              {formik.touched.password && formik.errors.password && (
+                <span className="text-red-500 text-md">
+                  {formik.errors.passord}
+                </span>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">
@@ -112,8 +162,19 @@ const Register = () => {
               <input
                 type="password"
                 placeholder="••••••••"
+                name="confirm_password"
+                id="confirm_password"
+                value={formik.values.confirm_password}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
                 className="w-[384px] p-2.5 rounded-md border border-[#5A5F68] bg-transparent text-white placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4] transition-colors"
               />
+              {formik.touched.confirm_password &&
+                formik.errors.confirm_password && (
+                  <span className="text-red-500 text-md">
+                    {formik.errors.confirm_password}
+                  </span>
+                )}
             </div>
             <div className="flex gap-2">
               <input type="checkbox" />
@@ -130,12 +191,17 @@ const Register = () => {
               </label>
             </div>
 
-            <Link className="bg-[#34D4F4] text-black font-bold py-3 rounded-md mt-4 hover:bg-[#2bc2e0] transition-colors flex justify-center items-center gap-3 text-[16px]" to={"/app"}>
+            <Link
+              className="bg-[#34D4F4] text-black font-bold py-3 rounded-md mt-4 hover:bg-[#2bc2e0] transition-colors flex justify-center items-center gap-3 text-[16px]"
+              to={"/app"}
+            >
               Create Account <ChevronRight />
             </Link>
             <p className="flex justify-center items-center gap-1">
               Already have an account?
-              <Link className="text-[#34D4F4] cursor-pointer" to={"/login"}>Log in here</Link>
+              <Link className="text-[#34D4F4] cursor-pointer" to={"/login"}>
+                Log in here
+              </Link>
             </p>
           </div>
         </form>

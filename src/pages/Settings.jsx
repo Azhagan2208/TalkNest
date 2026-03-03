@@ -50,7 +50,7 @@ const Settings = () => {
               />
             </div>
           </div>
-          <div className="w-[832px] border border-[#5A5F68FF] h-[202px] m-auto mt-[10px] rounded-md">
+          <div className="w-[832px] border border-[#5A5F68FF] h-[202px] m-auto mt-[30px] rounded-md">
             <h1 className="text-[#F9FAFAFF] font-bold text-[30px] ml-[15px] mt-[10px]">
               Security Settings
             </h1>
@@ -62,7 +62,7 @@ const Settings = () => {
               Change Password
             </button>
           </div>
-          <div className="w-[832px] h-[162px] border border-[#5A5F68FF] m-auto mt-[10px] rounded-md">
+          <div className="w-[832px] h-[162px] border border-[#5A5F68FF] m-auto mt-[30px] rounded-md">
             <h1 className="text-[#F9FAFAFF] font-bold text-[30px] ml-[15px] mt-[10px]">
               Preferences
             </h1>
@@ -72,7 +72,7 @@ const Settings = () => {
             </div>
             <div>{/* Toggle here */}</div>
           </div>
-          <div className="w-[832px] border border-[#5A5F68FF] h-[150px] m-auto mt-[10px] rounded-md">
+          <div className="w-[832px] border border-[#5A5F68FF] h-[150px] m-auto mt-[30px] rounded-md">
             <h1 className="text-[#F9FAFAFF] font-bold text-[30px] ml-[15px] mt-[10px]">
               Developer Info
             </h1>
@@ -93,7 +93,7 @@ const Settings = () => {
               Delete Account
             </button>
           </div>
-          <div className="mt-[70px] flex justify-center items-center">
+          <div className="mt-[30px] flex justify-center items-center">
             <p className="text-white">© 2026 MERN Chat. All rights reserved.</p>
           </div>
         </div>

@@ -29,7 +29,7 @@ const Login = () => {
         <p className="text-white text-center mb-5 text-sm">
           TalkNest: Secure, real-time messaging with JWT authentication.
         </p>
-        <form className="border border-[#2A2F3A] bg-[#191B1FFF] h-[420px] w-[448px] rounded-md shadow-lg">
+        <form className="border border-[#2A2F3A] bg-[#191B1FFF]  w-[448px] rounded-md shadow-lg p-[10px]">
           <div className="flex text-white justify-center p-3 gap-5 mt-3">
             <button className="p-3 w-[188px] bg-[#34D4F4] rounded-md cursor-pointer text-black">
               Login
