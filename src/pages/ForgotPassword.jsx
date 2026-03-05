@@ -23,11 +23,11 @@ const ForgotPassword = () => {
           className="text-white p-[12px] w-[370px] border-[#5A5F68] rounded-md border-1 placeholder:text-gray-600 focus:outline-none focus:border-[#34D4F4]"
           placeholder="✉ Enter your Email"
         />
-        <button
-          className="p-[10px] bg-[#34D4F4] rounded-md mt-[10px]"
+        <Link to={"/reset-success"}
+          className="p-[10px] bg-[#34D4F4] rounded-md mt-[10px] text-center "
         >
           Send Resest Link
-        </button>
+        </Link>
         <button
           to={"/login"}
           className="text-white flex gap-2 p-[12px] justify-center rounded-md w-[200px] ml-[85px] mt-[10px]"

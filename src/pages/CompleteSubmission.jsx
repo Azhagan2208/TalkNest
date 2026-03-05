@@ -2,8 +2,15 @@ import React from "react";
 import { MailCheck } from "lucide-react";
 import { RefreshCw } from "lucide-react";
 import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CompleteSubmission = () => {
+  const handleResend = () => {
+    toast.success("Recovery link sent again to your email!",{theme: "dark"});
+  };
+
   return (
     <div className="w-full h-screen bg-black flex justify-center items-center flex-col">
       <div className="bg-[#1AE4FFFF] w-[100px] h-[100px] rounded-[9999px] flex justify-center items-center">
@@ -34,16 +41,22 @@ const CompleteSubmission = () => {
         </div>
         <p className="text-[#CCCCCCFF] text-center mt-[10px]">
           Didn't receive the email?
-          <span className="text-[#34D4F4]"> Resend link</span>
+          <button
+            onClick={handleResend}
+            className="text-[#34D4F4] cursor-pointer"
+          >
+            Resend link
+          </button>
+          <ToastContainer position="top-right" autoClose={3000} />
         </p>
       </div>
-      <button
+      <Link
         to={"/login"}
-        className="text-white flex gap-2 p-[12px] justify-center rounded-md w-[200px] mt-[10px]"
+        className="text-white flex gap-2 p-[12px] justify-center rounded-md w-[200px] mt-[10px] cursor-pointer"
       >
         <ArrowLeft size={20} className="mt-[3px]" />
         Back to Home
-      </button>
+      </Link>
       <footer>
         <p>© 2026 MERN Chat. All rights reserved.</p>
       </footer>

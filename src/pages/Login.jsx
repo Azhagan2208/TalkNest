@@ -78,9 +78,9 @@ const Login = () => {
                 <input type="checkbox" />
                 <label className="text-white text-sm">Remember me</label>
               </div>
-              <p className="text-[#34D4F4] underline cursor-pointer text-sm">
+              <Link to={"/forgot-password"} className="text-[#34D4F4] underline cursor-pointer text-sm">
                 Forgot password?
-              </p>
+              </Link>
             </div>
           </div>
           <Link className="w-[384px] bg-[#34D4F4] p-3 rounded-md mx-auto block mt-5 cursor-pointer text-center" to={"/app"}>
